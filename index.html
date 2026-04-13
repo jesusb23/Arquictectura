@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatSaaS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- ── LOGIN ──────────────────────────────────────────────── -->
+<div id="login">
+  <div class="login-card">
+    <h3>Bienvenido</h3>
+    <p>Inicia sesión para continuar</p>
+    <input id="user" placeholder="Usuario" autocomplete="username">
+    <input id="pass" type="password" placeholder="Contraseña" autocomplete="current-password">
+    <button class="btn-primary" onclick="login()">Iniciar sesión</button>
+    <button class="btn-secondary" onclick="registro()">Crear cuenta</button>
+  </div>
+</div>
+
+<!-- ── APP ────────────────────────────────────────────────── -->
+<div id="app" style="display:none;">
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div id="usuario-header">
+      <div class="u-avatar" id="mi-avatar">?</div>
+      <div class="u-info">
+        <div class="u-name" id="usuario">Usuario</div>
+        <div class="u-status">
+          <span class="status-dot"></span> En línea
+        </div>
+      </div>
+    </div>
+
+    <div class="s-search">
+      <input placeholder="Buscar..." oninput="filtrarUsuarios(this.value)">
+    </div>
+
+    <div id="usuarios"></div>
+  </div>
+
+  <!-- CHAT -->
+  <div id="chat">
+    <div id="chat-header">
+      <div class="ch-avatar" id="ch-icon">🌍</div>
+      <div>
+        <div class="ch-name" id="chat-nombre">Selecciona un chat</div>
+        <div class="ch-status" id="chat-status"></div>
+      </div>
+      <div class="ch-actions">
+        <button class="ch-btn" title="Buscar en chat">🔍</button>
+        <button class="ch-btn" title="Información">ℹ️</button>
+      </div>
+    </div>
+
+    <div id="mensajes">
+      <div class="date-sep">Selecciona un chat para comenzar</div>
+    </div>
+
+    <div id="input-area">
+      <button class="ia-btn" title="Adjuntar archivo">📎</button>
+      <input id="mensaje" placeholder="Escribe un mensaje...">
+      <button class="ia-btn" title="Emoji">😊</button>
+      <button class="send-btn" onclick="enviar()" title="Enviar">➤</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
