@@ -1,4 +1,4 @@
-const BASE = 'https://arquictectura.onrender.com';
+const BASE = 'https://arquitectura.onrender.com';
 
 let usuarioActual = "";
 let chatActual = null;
