@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname)));
 
-// ── CONEXIÓN A MYSQL (Clever Cloud) ──────────────────────────
+// ── CONEXIÓN A MYSQL (Clever Cloud) 
 const db = mysql.createConnection({
     host:     "b43iu8c49wfqtjtvjerf-mysql.services.clever-cloud.com",
     user:     "ugsjcsvodub0hfcd",

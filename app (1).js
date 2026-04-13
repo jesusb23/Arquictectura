@@ -1,3 +1,5 @@
+const BASE = 'https://arquictectura.onrender.com';
+
 let usuarioActual = "";
 let chatActual = null;
 let todosLosUsuarios = [];
@@ -38,7 +40,7 @@ async function login() {
     return;
   }
 
-  const res = await fetch('http://localhost:3000/login', {
+  const res = await fetch(`${BASE}/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password })
@@ -57,7 +59,7 @@ async function login() {
   }
 }
 
-// ── REGISTRO ─────────────────────────────────────────────────
+// REGISTRO ─────────────────────────────────────────────────
 async function registro() {
   const username = document.getElementById('user').value.trim();
   const password = document.getElementById('pass').value;
@@ -67,7 +69,7 @@ async function registro() {
     return;
   }
 
-  const res = await fetch('http://localhost:3000/registro', {
+  const res = await fetch(`${BASE}/registro`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password })
@@ -82,7 +84,7 @@ async function registro() {
 
 // ── SIDEBAR ──────────────────────────────────────────────────
 async function cargarUsuarios() {
-  const res = await fetch('http://localhost:3000/usuarios');
+  const res = await fetch(`${BASE}/usuarios`);
   todosLosUsuarios = await res.json();
   renderUsuarios(todosLosUsuarios);
 }
@@ -157,7 +159,7 @@ function abrirChat(usuario, elemento) {
 async function cargarMensajes() {
   if (!usuarioActual) return;
 
-  const res = await fetch('http://localhost:3000/mensajes/' + usuarioActual);
+  const res = await fetch(`${BASE}/mensajes/` + usuarioActual);
   const data = await res.json();
   const cont = document.getElementById('mensajes');
   cont.innerHTML = '';
@@ -220,7 +222,7 @@ async function enviar() {
 
   input.value = '';
 
-  await fetch('http://localhost:3000/mensaje', {
+  await fetch(`${BASE}/mensaje`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ de: usuarioActual, para: chatActual, mensaje })
